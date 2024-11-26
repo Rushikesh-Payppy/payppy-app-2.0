@@ -1,7 +1,9 @@
  //sign in with google
  function signInWithGoogle()
  {
-     fetch('https://payppy.in/auth/google-login')
+     fetch('https://payppy.in/auth/google-login',{
+        credentials:'include'
+     })
      .then((data)=>{
 
      })
