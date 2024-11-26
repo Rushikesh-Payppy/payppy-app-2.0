@@ -201,7 +201,7 @@ function SignUpSection()
                                     <div className="border border-custom-grey200 grow"></div>
                                 </div>
                                 <div className="flex flex-col gap-3">
-                                    <div className="flex justify-center background-custom-white items-center gap-2 py-3 px-5 border rounded-sm" onClick={handleSignInWithGoogle}>
+                                    <div className="flex justify-center background-custom-white items-center gap-2 py-3 px-5 border rounded-sm cursor-pointer hover:shadow-xl" onClick={handleSignInWithGoogle}>
                                         <Image src={Google} width={20} height={20} alt='img' quality={100} />
                                         <div className="body-sm custom-text-grey900">Continue with Google</div>
                                     </div>
