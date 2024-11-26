@@ -16,7 +16,7 @@ const plus_jakarta_sans=Plus_Jakarta_Sans({
 })
     
 
-function PasswordValidationBoxes({password,setInvalidPassword})
+function PasswordValidationBoxes({password})
 {
     let[charactersLengthValidation,setCharactersLengthValidation]=useState(false);
     let[oneNumberValidation,setOneNumberValidation]=useState(false);
@@ -35,7 +35,7 @@ function PasswordValidationBoxes({password,setInvalidPassword})
         setOneUpperCaseLetterValidation(hasUppercase.test(password))    //password contains At least uppercase letter
         setOneSpecialLetterValidation(hasSpecialChar.test(password))    //password contains At least special character
         
-        setInvalidPassword(password.length<8 || !hasNumber.test(password) || !hasUppercase.test(password) || !hasSpecialChar.test(password));
+
     }
 
 
@@ -68,3 +68,15 @@ function PasswordValidationBoxes({password,setInvalidPassword})
 }
 
 export default PasswordValidationBoxes;
+
+
+function verifyPasswordIsMatchingToCriteriaWhileTyping(password)
+{
+    const hasNumber = /[0-9]/; // At least one number
+    const hasUppercase = /[A-Z]/; // At least one uppercase letter
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/; // At least one special character
+    
+    return password.length<8 || !hasNumber.test(password) || !hasUppercase.test(password) || !hasSpecialChar.test(password);   
+}
+
+export {verifyPasswordIsMatchingToCriteriaWhileTyping};

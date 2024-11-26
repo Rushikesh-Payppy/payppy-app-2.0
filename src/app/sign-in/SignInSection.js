@@ -73,13 +73,13 @@ function SignInSection()
 
     return(
         <>
-        <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}>
+        <section className={"flex justify-center h-screen w-full background-custom-grey100   "+plus_jakarta_sans.className}>
             <div className="page-center-parent-container  small-border custom-border-grey600 relative">
-                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey100 gap-8 h-screen ">
+                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey100 gap-8 h-full pb-20">
                     <div className="flex justify-center  ">
                         <div className="w-[49px] border-2 border-custom-grey100 "></div>
                     </div>
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-6 ">
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
                                 <h3 className="heading-h3 custom-text-grey900 font-semibold ">Let’s get started!</h3>
@@ -100,7 +100,7 @@ function SignInSection()
                                 </div>
                                 <div className="flex flex-col gap-3 items-center">
                                     {invalidEmailOrPhonenumber&&<span className='body-sm custom-text-alert'>Please Enter Valid Inputs</span>}
-                                    <button className="py-4 px-7 w-full bg-black shadow-sm custom-text-white all-caps-12" onClick={handleProceed}>Proceed</button>
+                                    <div className="py-4 px-7 w-full bg-black shadow-sm custom-text-white all-caps-12 text-center cursor-pointer " onClick={handleProceed}>Proceed</div>
                                     <div className="flex gap-2 justify-center ">
                                         <div className="custom-text-grey700 body">New user?</div>
                                         <Link href='/' className='body-bold custom-text-grey800 underline pb-2.5'>Sign up</Link>

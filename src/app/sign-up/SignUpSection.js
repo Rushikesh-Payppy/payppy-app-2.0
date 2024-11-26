@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import OtpSection from '../otp/OtpSection';
 import OtpInputs from '@/Components/OtpInputs';
 import SignUpByEmail from './SignUpByEmail';
-import PasswordValidationBoxes from '@/Components/PasswordValidation';
+import PasswordValidationBoxes, { verifyPasswordIsMatchingToCriteriaWhileTyping } from '@/Components/PasswordValidation';
 import SanitizeInputs from '@/SanitizingInputs/SanitizeInputs';
 import UserRegisterApi from '@/apis/UserRegistrationApi';
 
@@ -39,6 +39,11 @@ function SignUpSection()
     useEffect(()=>{
         ValidateNumberOrEmailInputWhileTyping();  //to show errors of field when user input this field
     },[numberOrEmail])
+
+    useEffect(()=>{
+        let isPasswordValid=verifyPasswordIsMatchingToCriteriaWhileTyping(password)
+        setInvalidPassword(isPasswordValid);
+    },[password])
 
     //handle email or phone input
     function handleEmailOrPhoneInput(e)
@@ -145,13 +150,13 @@ function SignUpSection()
     }
     return(
         <>
-         {screenView==='section'&&  <section className={"flex justify-center h-screen w-full background-custom-grey50  overflow-hidden  "+plus_jakarta_sans.className}>
-            <div className="page-center-parent-container  small-border custom-border-grey600 overflow-scrollbar-hidden">
-                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey50 gap-8 h-screen ">
+         {screenView==='section'&&  <section className={"flex justify-center min-h-screen w-full background-custom-grey50    "+plus_jakarta_sans.className}>
+            <div className="page-center-parent-container  small-border custom-border-grey600 overflow-y-scroll overflow-scrollbar-hidden ">
+                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey50 gap-8 h-full ">
                     <div className="flex justify-center  ">
                         <div className="w-[49px] border-2 border-custom-grey100 "></div>
                     </div>
-                    <div className="flex flex-col gap-6">
+                    <div className="flex flex-col gap-6 pb-20">
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
                                 <h3 className="heading-h3 custom-text-grey900 font-semibold ">Let’s get started!</h3>
@@ -170,12 +175,12 @@ function SignUpSection()
                                     <div className="flex flex-col gap-1.5">
                                         <div className="body-sm-bold custom-text-grey900">Password</div>
                                         <input type="password" name="password" value={password} className='w-full border border-custom-grey300 outline-none py-3.5 px-5 ' onChange={handlePasswordInput}/>
-                                        {invalidPassword&&password.length>1&&<span className="custom-text-alert body-sm">password must match with below criteria</span>}
+                                        {invalidPassword&&password.length>0&&<span className="custom-text-alert body-sm">password must match with below criteria</span>}
                                     </div>
-                                   <PasswordValidationBoxes password={password} setInvalidPassword={setInvalidPassword}/>
+                                   <PasswordValidationBoxes password={password} />
                                 </div>
                                 <div className="flex flex-col gap-3 items-center">
-                                    <button className="py-4 px-7 w-full bg-black shadow-sm custom-text-white all-caps-12" onClick={signUp}>Proceed</button>
+                                    <div className="py-4 px-7 w-full bg-black shadow-sm custom-text-white all-caps-12 text-center cursor-pointer" onClick={signUp}>Proceed</div>
                                     <div className="flex gap-2 justify-center ">
                                         <div className="custom-text-grey700 body">Already have an account? </div>
                                         <Link href='/sign-in' className='body-bold custom-text-grey800 underline pb-2.5'>Log in</Link>

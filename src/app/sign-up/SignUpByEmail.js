@@ -49,6 +49,9 @@ function SignUpByEmail({email,setScreenView,alreadyRegistered})
         .then((response)=>{
             setEmailRegistered(true);
         })
+        .catch((error)=>{
+            
+        })
     }
     function handleBackBtn()
     {
