@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import SanitizeInputs from '@/SanitizingInputs/SanitizeInputs';
 import { ValidateNumberOrEmailInput } from '../sign-up/SignUpSection';
 import SignInApi from '@/apis/SignInApi';
+import signInWithGoogle from '@/apis/SIgnInWithGoogle';
 
 const plus_jakarta_sans=Plus_Jakarta_Sans({
     subsets:['latin'],
@@ -70,12 +71,15 @@ function SignInSection()
         })
     }
 
-
+    function handleSignInWithGoogle()
+    {
+        signInWithGoogle();
+    }
     return(
         <>
         <section className={"flex justify-center h-screen w-full background-custom-grey100   "+plus_jakarta_sans.className}>
             <div className="page-center-parent-container  small-border custom-border-grey600 relative">
-                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey100 gap-8 h-full pb-20">
+                <div className="flex flex-col px-6 pt-2  background-custom-grey100 gap-8 h-full pb-20">
                     <div className="flex justify-center  ">
                         <div className="w-[49px] border-2 border-custom-grey100 "></div>
                     </div>
@@ -114,7 +118,7 @@ function SignInSection()
                                     <div className="border border-custom-grey200 grow"></div>
                                 </div>
                                 <div className="flex flex-col gap-3">
-                                    <div className="flex justify-center background-custom-white items-center gap-2 py-3 px-5 border rounded-sm cursor-pointer hover:shadow-xl duration-200" >
+                                    <div className="flex justify-center background-custom-white items-center gap-2 py-3 px-5 border rounded-sm cursor-pointer hover:shadow-xl duration-200" onClick={handleSignInWithGoogle}>
                                         <Image src={Google} width={20} height={20} alt='img' quality={100} />
                                         <div className="body-sm custom-text-grey900">Continue with Google</div>
                                     </div>

@@ -17,6 +17,14 @@ async function UserRegisterApi(payloadObj)
             }
 
         }
+        if (error.status == 400 && error.response.data?.message === 'User already verified.') {
+
+            return {
+                status: 400,
+                message: 'User already verified.'
+            }
+
+        }
     }
 
 }

@@ -12,6 +12,8 @@ import SignUpByEmail from './SignUpByEmail';
 import PasswordValidationBoxes, { verifyPasswordIsMatchingToCriteriaWhileTyping } from '@/Components/PasswordValidation';
 import SanitizeInputs from '@/SanitizingInputs/SanitizeInputs';
 import UserRegisterApi from '@/apis/UserRegistrationApi';
+import { useRouter } from 'next/navigation';
+import signInWithGoogle from '@/apis/SIgnInWithGoogle';
 
 const plus_jakarta_sans=Plus_Jakarta_Sans({
     subsets:['latin'],
@@ -35,6 +37,9 @@ function SignUpSection()
     let[invalidMobileNumber,setInvalidMobileNumber]=useState(false);
     //if email input is wrong
     let[invalidEmail,setInvalidEmail]=useState(false);
+
+
+    let router=useRouter();
 
     useEffect(()=>{
         ValidateNumberOrEmailInputWhileTyping();  //to show errors of field when user input this field
@@ -108,6 +113,10 @@ function SignUpSection()
                 setAlreadyRegistered(true);
                 setScreenView('email');
             }
+            if (response&&response.status==400&&response.message=='User already verified.')
+            {
+                router.push('/already-verified')
+            }
 
             if(response&&"otp_response" in response)
             {
@@ -141,13 +150,11 @@ function SignUpSection()
 
     }
 
-    
-
-    //sign in with google
-    function signInWithGoogle()
+    function handleSignInWithGoogle()
     {
-        
+        signInWithGoogle();
     }
+   
     return(
         <>
          {screenView==='section'&&  <section className={"flex justify-center min-h-screen w-full background-custom-grey50    "+plus_jakarta_sans.className}>
@@ -194,7 +201,7 @@ function SignUpSection()
                                     <div className="border border-custom-grey200 grow"></div>
                                 </div>
                                 <div className="flex flex-col gap-3">
-                                    <div className="flex justify-center background-custom-white items-center gap-2 py-3 px-5 border rounded-sm">
+                                    <div className="flex justify-center background-custom-white items-center gap-2 py-3 px-5 border rounded-sm" onClick={handleSignInWithGoogle}>
                                         <Image src={Google} width={20} height={20} alt='img' quality={100} />
                                         <div className="body-sm custom-text-grey900">Continue with Google</div>
                                     </div>
