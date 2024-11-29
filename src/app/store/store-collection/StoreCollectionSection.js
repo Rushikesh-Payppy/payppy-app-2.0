@@ -41,7 +41,7 @@ function StoreCollectionSection()
                             <div className="w-4 h-[1px] custom-border-white border"></div>
                         </div>
                     </Link>
-                    <Link href='/'>
+                    <Link href='/store/store-lookbook'>
                         <div className="py-1.5 px-2 flex flex-col items-center gap-1">
                             <div className='body-bold custom-text-white '>Lookbook</div>
                             {/* <div className="w-4 h-[1px] custom-border-white border"></div> */}

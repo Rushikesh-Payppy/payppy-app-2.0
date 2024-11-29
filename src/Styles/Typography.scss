@@ -356,3 +356,15 @@ $alert:#E13A3A;
     display: none;
   }
 }
+
+.store-button-shadow
+{
+  box-shadow: 0px 1px 2px 0px #0000000D;
+}
+
+.snap-x-custom{
+  scroll-snap-type: x mandatory;
+}
+.snap-start-custom{
+  scroll-snap-align: start;
+}

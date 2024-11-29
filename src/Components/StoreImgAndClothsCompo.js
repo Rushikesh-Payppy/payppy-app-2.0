@@ -1,8 +1,30 @@
+'use client';
 import Image from 'next/image';
 import ClothsHorizontalCarousel from './ClothsHorizontalCarousel';
+import { useEffect, useState } from 'react';
+import StoreProductsListApi from '@/apis/store/StoreProductsListApi';
 
-function StoreImgAndClothsCompo({imgName,catagory,title})
+function StoreImgAndClothsCompo({imgName,catagory,title,id})
 {
+    let[products,setProducts]=useState([]);
+
+    function getProductsOfCollection()
+    {
+        let query=`?collection_id=${id}`;
+
+        StoreProductsListApi(query)
+        .then((response)=>{
+            setProducts(response?.products);
+        })
+        .catch((error)=>{
+            console.log(error);
+            return error;
+        })
+    }
+
+    useEffect(()=>{
+        getProductsOfCollection();
+    },[])
     return(
         <>
         <div className="h-full">
@@ -14,6 +36,12 @@ function StoreImgAndClothsCompo({imgName,catagory,title})
                 </div>
             </div>
             <div className="h-[40%] flex overflow-x-scroll overflow-scrollbar-hidden ">
+                {products.length>0?products.map((element)=>{
+                    return <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}  title={element.title} img={element.images[0]}/>
+                })
+                :
+                //this conditional rendering is for development purpose (in production mode only above return statement code will be use)
+                <>  
                 <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
                 <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
                 <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
@@ -23,7 +51,9 @@ function StoreImgAndClothsCompo({imgName,catagory,title})
                 <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
                 <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
                 <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
-                <ClothsHorizontalCarousel containerWidth={' min-w-[40%] '}/>
+                </>
+                }
+                
 
             </div>
 

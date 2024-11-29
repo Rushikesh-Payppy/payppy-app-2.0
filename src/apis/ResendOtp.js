@@ -1,4 +1,4 @@
-'use client';
+'ues client';
 import axios from 'axios';
 
 async function ResendOtp(payloadObj)
