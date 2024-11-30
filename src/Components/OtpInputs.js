@@ -190,7 +190,7 @@ function OtpInputs({sessionId,phone_number,setScreenView,alreadyRegistered})
                             <div className="flex flex-col gap-5 ">
                                 <div className="grid grid-cols-6 border border-l-0 custom-border-grey200 w-full ">
                                     {Array(6).fill(0).map((element,index)=>{
-                                        return<div className="border-l  h-16 custom-border-grey200 ">
+                                        return<div className="border-l  h-16 custom-border-grey200 " key={index}>
                                             <input type="text"  ref={ref=>(otp.current[index]=ref)} className={`outline-none h-full px-5 heading-h3 w-full otp-input-fields `} maxLength={1} onChange={(e)=>{handleOtp(e,index)}} onKeyDown={(e)=>{handleBackspace(e,index)}} />
                                         </div>
                                     })}

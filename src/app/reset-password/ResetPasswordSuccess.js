@@ -33,7 +33,7 @@ function ResetPasswordSuccess()
                     <div className="flex flex-col gap-8 items-center     ">
                        <div className="w-24 h-24 rounded-full background-custom-grey50"></div>
                        <div className="flex flex-col items-center gap-2">
-                            <div className="body-bold custom-text-grey900">You're all set!</div>
+                            <div className="body-bold custom-text-grey900">You`&apos;re all set!</div>
                             <div className="body-sm custom-text-grey700">Now, try logging in with your fresh new password.</div>
                        </div>
                         <button onClick={()=>{router.push('/sign-in')}} className='py-4 px-7 w-full bg-black shadow-sm custom-text-white all-caps-12'>Back to Log in</button>

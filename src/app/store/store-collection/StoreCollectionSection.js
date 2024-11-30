@@ -78,15 +78,15 @@ function StoreCollectionSection()
 
 
             {/* grid view section  */}
-            <section className={`grid grid-cols-${gridColums} small-border-bottom small-border-left  custom-border-grey800`}>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
-                <ClothsHorizontalCarousel borderClass={'  small-border-top '}/>
+            <section className={`grid grid-cols-${gridColums} small-border-bottom small-border-x  custom-border-grey800`}>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top small-border-right '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top  '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top small-border-right '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top  '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top small-border-right '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top  '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top small-border-right '}/>
+                <ClothsHorizontalCarousel borderClass={'  small-border-top  '}/>
 
             </section>
 

@@ -1,10 +1,7 @@
 'use client';
 import Image from "next/image";
 //header images
-import CloseIcon from '@/Images/Store/close-icon.svg';
 import Pepcoin from '@/Images/Homepage/pepcoin-icon.svg';
-import Share from '@/Images/Store/share-icon.svg';
-import Store from '@/Images/Homepage/store-icon.svg';
 import Plus from '@/Images/Store/plus.svg';
 
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -32,6 +29,7 @@ import YesBank from '@/Images/Store/yes-bank.svg';
 import Feature1 from '@/Images/Store/feature1.jpg';
 import Feature2 from '@/Images/Store/feature2.jpg';
 import ClothsHorizontalCarousel from "@/Components/ClothsHorizontalCarousel";
+import StoreShopPepoinNavbar from "@/Components/StoreShopPepoinNavbar";
 
 
 
@@ -58,25 +56,15 @@ function SingleProductSection()
         }
 
         return ()=> parentContainer.current.removeEventListener('scroll',handleFirstSelectSizeBtnVisibility);
-    },[])
+    },[parentContainer.current])
     return(
         <>
             <section className={"flex justify-center h-screen w-full background-custom-grey100   " + plus_jakarta_sans.className}>
                 <div className="page-center-parent-container  h-full  overflow-scrollbar-hidden small-border-x custom-border-grey800 overflow-scroll " ref={parentContainer}>
                     
                     <div className="h-[83%]  overflow-hidden">
-                        
-                        <div className="flex items-center justify-between py-3 px-4 background-custom-white">
-                            <Image src={CloseIcon} width={20} height={20} alt="img" quality={100} className="" />
-                            <div className="flex items-center gap-4">
-                                <div className="flex items-center gap-0.5 small-border rounded-full py-1 px-2 custom-border-grey400">
-                                    <Image src={Pepcoin} width={20} height={20} alt="img" quality={100} className="" />
-                                    <div className="all-caps-12-bold custom-text-grey800"> 230 </div>
-                                </div>
-                                <Image src={Share} width={20} height={20} alt="img" quality={100} className="" />
-                                <Image src={Store} width={20} height={20} alt="img" quality={100} className="" />
-                            </div>
-                        </div>
+
+                        <StoreShopPepoinNavbar share={true} store={true} pepcoin={true} />
 
                         <Image src={SingleProduct} width={390} height={620} alt="img" quality={100} className="w-full h-auto object-cover " />
 

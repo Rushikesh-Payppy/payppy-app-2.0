@@ -20,16 +20,7 @@ function ResetPasswordSection()
 
     let[pageIndex,setPageIndex]=useState(0);
 
-    useEffect(()=>{
-        let interval=setInterval(() => {
-            let index=pageIndex+1;
-            if(index>3)
-                {
-                    clearInterval(interval);
-                }
-                setPageIndex(index);
-            }, 400);
-    },[])
+
 
  
     return(

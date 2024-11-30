@@ -73,7 +73,8 @@ function SignInSection()
 
     function handleSignInWithGoogle()
     {
-        signInWithGoogle();
+        // signInWithGoogle();
+        router.push('https://payppy.in/auth/google-login');
     }
     return(
         <>

@@ -22,7 +22,7 @@ function StorePageSection()
     {
         StoreCollectionsApi()
         .then((response)=>{
-            setCollections(response.collections);
+            setCollections(response.collections || []);
         })
         .catch((error)=>{
             console.log(error);

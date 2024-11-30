@@ -152,7 +152,7 @@ function SignUpSection()
 
     function handleSignInWithGoogle()
     {
-        signInWithGoogle();
+        router.push('https://payppy.in/auth/google-login');
     }
    
     return(
